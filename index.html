@@ -10,6 +10,66 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>OnlyOwl - Profil de Chouette</title>
+    <meta
+      name="description"
+      content="Découvrez le profil OnlyOwl de Chouette, l'exploratrice nocturne ! Posts exclusifs, photos de ses aventures et plus encore."
+    />
+    <link
+      rel="icon"
+      href="/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <meta
+      property="og:type"
+      content="profile"
+    />
+    <meta
+      property="og:url"
+      content="https://chouette.cc/"
+    />
+    <meta
+      property="og:title"
+      content="OnlyOwl - Profil de Chouette"
+    />
+    <meta
+      property="og:description"
+      content="Découvrez le profil OnlyOwl de Chouette, l'exploratrice nocturne ! Posts exclusifs, photos de ses aventures et plus encore."
+    />
+    <meta
+      property="og:image"
+      content="https://chouette.cc/assets/banner.jpeg"
+    />
+    <meta
+      property="og:image:alt"
+      content="Bannière OnlyOwl avec une chouette en bikini rose dans une forêt"
+    />
+    <meta
+      property="profile:username"
+      content="chouette.cc"
+    />
+
+    <meta
+      name="twitter:card"
+      content="summary_large_image"
+    />
+    <meta
+      name="twitter:url"
+      content="https://chouette.cc/"
+    />
+    <meta
+      name="twitter:title"
+      content="OnlyOwl - Profil de Chouette"
+    />
+    <meta
+      name="twitter:description"
+      content="Découvrez le profil OnlyOwl de Chouette, l'exploratrice nocturne ! Posts exclusifs, photos de ses aventures et plus encore."
+    />
+    <meta
+      name="twitter:image"
+      content="https://chouette.cc/assets/banner.jpeg"
+    />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -70,12 +130,27 @@
         id="left-sidebar"
         class="sidebar bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-r border-gray-200 dark:border-slate-700 flex flex-col transition-all duration-300 ease-in-out w-20 lg:w-64 p-3 lg:p-4 space-y-3 lg:space-y-4 no-scrollbar"
       >
+        <div
+          class="flex items-center justify-center lg:justify-start p-2 mb-2 lg:mb-0"
+        >
+          <img
+            src="assets/logo.png"
+            alt="Logo OnlyOwl"
+            class="w-8 h-8 flex-shrink-0"
+            onerror="this.onerror=null;this.src='https://placehold.co/32x32/3B82F6/FFFFFF?text=O';"
+          />
+          <span
+            class="ml-2 text-xl font-bold text-blue-600 dark:text-blue-500 hidden lg:inline"
+            >OnlyOwl</span
+          >
+        </div>
+
         <a
           href="#"
           class="disabled-button flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors duration-150"
         >
           <img
-            src="https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/1/d/8/1d8a8e8fe1_109430_chouette-hibou-difference.jpg"
+            src="assets/avatar.jpg"
             alt="Avatar de Chouette"
             class="w-10 h-10 rounded-full object-cover flex-shrink-0"
             onerror="this.onerror=null;this.src='https://placehold.co/40x40/374151/E5E7EB?text=C';"
@@ -319,7 +394,7 @@
                 class="flex flex-col sm:flex-row items-center sm:items-end space-x-0 sm:space-x-5"
               >
                 <img
-                  src="https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/1/d/8/1d8a8e8fe1_109430_chouette-hibou-difference.jpg"
+                  src="assets/avatar.jpg"
                   alt="Photo de profil de Chouette"
                   class="w-24 h-24 md:w-32 md:h-32 rounded-full profile-avatar-overlap object-cover border-4 border-gray-50 dark:border-slate-950"
                   onerror="this.onerror=null;this.src='https://placehold.co/128x128/CBD5E1/475569?text=C';"
@@ -470,7 +545,7 @@
               <div class="p-4">
                 <div class="flex items-center mb-3">
                   <img
-                    src="https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/1/d/8/1d8a8e8fe1_109430_chouette-hibou-difference.jpg"
+                    src="assets/avatar.jpg"
                     alt="Avatar de Chouette"
                     class="w-10 h-10 rounded-full mr-3 object-cover"
                     onerror="this.onerror=null;this.src='https://placehold.co/40x40/CBD5E1/475569?text=C';"
@@ -609,7 +684,7 @@
               <div class="p-4">
                 <div class="flex items-center mb-3">
                   <img
-                    src="https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/1/d/8/1d8a8e8fe1_109430_chouette-hibou-difference.jpg"
+                    src="assets/avatar.jpg"
                     alt="Avatar de Chouette"
                     class="w-10 h-10 rounded-full mr-3 object-cover"
                     onerror="this.onerror=null;this.src='https://placehold.co/40x40/CBD5E1/475569?text=C';"
@@ -679,7 +754,7 @@
                         d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
                       />
                     </svg>
-                    2 Commentaires
+                    3 Commentaires
                   </button>
                   <button
                     type="button"
@@ -739,6 +814,24 @@
                       >
                     </p>
                   </div>
+                  <div class="flex">
+                    <img
+                      src="assets/sereinesse.webp"
+                      alt="Avatar Sereinesse"
+                      class="w-6 h-6 rounded-full mr-2 object-cover"
+                      onerror="this.onerror=null;this.src='https://placehold.co/24x24/8B5CF6/FFFFFF?text=S';"
+                    />
+                    <p>
+                      <strong class="text-slate-700 dark:text-gray-300"
+                        >@Sereinesse:</strong
+                      >
+                      Bain de minuit de mes rêves , ton plumage crée le
+                      firmament au creux de mes yeux ✨
+                      <span class="text-slate-400 dark:text-gray-500 ml-1"
+                        >Il y a 20 min</span
+                      >
+                    </p>
+                  </div>
                 </div>
               </div>
             </article>
@@ -749,7 +842,7 @@
               <div class="p-4">
                 <div class="flex items-center mb-3">
                   <img
-                    src="https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/1/d/8/1d8a8e8fe1_109430_chouette-hibou-difference.jpg"
+                    src="assets/avatar.jpg"
                     alt="Avatar de Chouette"
                     class="w-10 h-10 rounded-full mr-3 object-cover"
                     onerror="this.onerror=null;this.src='https://placehold.co/40x40/CBD5E1/475569?text=C';"
@@ -886,7 +979,7 @@
               <div class="p-4">
                 <div class="flex items-center mb-3">
                   <img
-                    src="https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/1/d/8/1d8a8e8fe1_109430_chouette-hibou-difference.jpg"
+                    src="assets/avatar.jpg"
                     alt="Avatar de Chouette"
                     class="w-10 h-10 rounded-full mr-3 object-cover"
                     onerror="this.onerror=null;this.src='https://placehold.co/40x40/CBD5E1/475569?text=C';"
@@ -1023,7 +1116,7 @@
               <div class="p-4">
                 <div class="flex items-center mb-3">
                   <img
-                    src="https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/1/d/8/1d8a8e8fe1_109430_chouette-hibou-difference.jpg"
+                    src="assets/avatar.jpg"
                     alt="Avatar de Chouette"
                     class="w-10 h-10 rounded-full mr-3 object-cover"
                     onerror="this.onerror=null;this.src='https://placehold.co/40x40/CBD5E1/475569?text=C';"
@@ -1191,7 +1284,7 @@
             Abonnez-vous à Chouette !
           </h3>
           <img
-            src="https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/1/d/8/1d8a8e8fe1_109430_chouette-hibou-difference.jpg"
+            src="assets/avatar.jpg"
             alt="Chouette"
             class="rounded-lg w-full h-32 object-cover mb-3"
             onerror="this.onerror=null;this.src='https://placehold.co/256x128/CBD5E1/475569?text=Chouette';"
