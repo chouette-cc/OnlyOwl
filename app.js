@@ -452,10 +452,23 @@
   }
 
   function formatPostText(text) {
-    const escaped = escapeHtml(text);
-    return escaped.replace(/#([A-Za-zÀ-ÖØ-öø-ÿ0-9_]+)/g, (_, tag) => {
-      return `<button type="button" class="of-hashtag" data-hashtag="${tag}">#${tag}</button>`;
-    });
+    const regex = /(^|[\s(«])#([\p{L}\p{N}_]+)/gu;
+    let result = "";
+    let lastIndex = 0;
+    let match;
+
+    while ((match = regex.exec(text)) !== null) {
+      const prefix = match[1];
+      const tag = match[2];
+      const hashStart = match.index + prefix.length;
+
+      result += escapeHtml(text.slice(lastIndex, hashStart));
+      result += `<button type="button" class="of-hashtag" data-hashtag="${escapeHtml(tag)}">#${escapeHtml(tag)}</button>`;
+      lastIndex = regex.lastIndex;
+    }
+
+    result += escapeHtml(text.slice(lastIndex));
+    return result;
   }
 
   function getVisitorInitials() {
