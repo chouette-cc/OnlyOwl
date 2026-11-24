@@ -1,1468 +1,1068 @@
 <!DOCTYPE html>
-<html
-  lang="fr"
-  class="scroll-smooth"
->
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <title>OnlyOwl - Profil de Chouette</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OnlyOwl — Chouette (@chouette.cc)</title>
     <meta
       name="description"
       content="Découvrez le profil OnlyOwl de Chouette, l'exploratrice nocturne ! Posts exclusifs, photos de ses aventures et plus encore."
     />
-    <link
-      rel="icon"
-      href="/favicon.ico"
-      type="image/x-icon"
-    />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
-    <meta
-      property="og:type"
-      content="profile"
-    />
-    <meta
-      property="og:url"
-      content="https://chouette.cc/"
-    />
-    <meta
-      property="og:title"
-      content="OnlyOwl - Profil de Chouette"
-    />
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://chouette.cc/" />
+    <meta property="og:title" content="OnlyOwl - Profil de Chouette" />
     <meta
       property="og:description"
       content="Découvrez le profil OnlyOwl de Chouette, l'exploratrice nocturne ! Posts exclusifs, photos de ses aventures et plus encore."
     />
-    <meta
-      property="og:image"
-      content="https://chouette.cc/assets/banner.jpeg"
-    />
+    <meta property="og:image" content="https://chouette.cc/assets/banner.jpeg" />
     <meta
       property="og:image:alt"
-      content="Bannière OnlyOwl avec une chouette en bikini rose dans une forêt"
+      content="Bannière OnlyOwl avec une chouette en bikini rose"
     />
-    <meta
-      property="profile:username"
-      content="chouette.cc"
-    />
+    <meta property="profile:username" content="chouette.cc" />
 
-    <meta
-      name="twitter:card"
-      content="summary_large_image"
-    />
-    <meta
-      name="twitter:url"
-      content="https://chouette.cc/"
-    />
-    <meta
-      name="twitter:title"
-      content="OnlyOwl - Profil de Chouette"
-    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://chouette.cc/" />
+    <meta name="twitter:title" content="OnlyOwl - Profil de Chouette" />
     <meta
       name="twitter:description"
       content="Découvrez le profil OnlyOwl de Chouette, l'exploratrice nocturne ! Posts exclusifs, photos de ses aventures et plus encore."
     />
-    <meta
-      name="twitter:image"
-      content="https://chouette.cc/assets/banner.jpeg"
-    />
+    <meta name="twitter:image" content="https://chouette.cc/assets/banner.jpeg" />
+
+    <script>
+      (function () {
+        const saved = localStorage.getItem("onlyowl_theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (saved === "dark" || (!saved && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        darkMode: "class", // Crucial for enabling class-based dark mode
+        darkMode: "class",
         theme: {
           extend: {
-            // You can add other theme customizations here if needed
+            colors: {
+              of: {
+                blue: "#00AFF0",
+                hover: "#0091EA",
+              },
+            },
           },
         },
-        plugins: [],
       };
     </script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <style>
-      body {
-        font-family: "Inter", sans-serif;
-      }
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-      .no-scrollbar {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-      }
-      .disabled-button {
-        cursor: not-allowed;
-        opacity: 0.8;
-      }
-      .profile-avatar-overlap {
-        margin-top: -64px; /* Adjust this based on avatar size (e.g., - (height/2) ) */
-      }
-      /* .tab-active and .tab-inactive are marker classes, specific styles are applied via Tailwind */
-
-      .main-layout {
-        display: flex;
-        min-height: 100vh;
-      }
-      .sidebar {
-        height: 100vh;
-        position: sticky;
-        top: 0;
-        overflow-y: auto;
-      }
-      .main-content-area {
-        flex: 1;
-        overflow-y: auto; /* Important for scrolling only the main content */
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body
-    class="bg-gray-100 text-slate-700 dark:bg-slate-900 dark:text-slate-300 no-scrollbar transition-colors duration-300 ease-in-out"
-  >
-    <div class="main-layout">
+
+  <body class="min-h-screen selection:bg-[#00AFF0]/20 selection:text-[#00AFF0]">
+    <!-- Main 3-column OnlyFans Shell -->
+    <div class="max-w-[1264px] mx-auto flex min-h-screen justify-center">
+      <!-- LEFT NAVIGATION SIDEBAR (Desktop & Tablet) -->
       <aside
         id="left-sidebar"
-        class="sidebar bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-r border-gray-200 dark:border-slate-700 flex flex-col transition-all duration-300 ease-in-out w-20 lg:w-64 p-3 lg:p-4 space-y-3 lg:space-y-4 no-scrollbar"
+        class="hidden md:flex flex-col sticky top-0 h-screen w-[76px] xl:w-[248px] shrink-0 px-2 xl:px-4 py-4 overflow-y-auto no-scrollbar select-none"
       >
-        <div
-          class="flex items-center justify-center lg:justify-start p-2 mb-2 lg:mb-0"
-        >
-          <img
-            src="assets/logo.png"
-            alt="Logo OnlyOwl"
-            class="w-8 h-8 flex-shrink-0"
-            onerror="this.onerror=null;this.src='https://placehold.co/32x32/3B82F6/FFFFFF?text=O';"
-          />
-          <span
-            class="ml-2 text-xl font-bold text-blue-600 dark:text-blue-500 hidden lg:inline"
-            >OnlyOwl</span
-          >
-        </div>
-
-        <a
-          href="#"
-          class="disabled-button flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors duration-150"
-        >
-          <img
-            src="assets/avatar.jpg"
-            alt="Avatar de Chouette"
-            class="w-10 h-10 rounded-full object-cover flex-shrink-0"
-            onerror="this.onerror=null;this.src='https://placehold.co/40x40/374151/E5E7EB?text=C';"
-          />
-          <div class="ml-3 hidden lg:block overflow-hidden">
-            <span
-              class="font-semibold text-sm text-slate-800 dark:text-white truncate block"
-              >Chouette</span
-            >
-            <span
-              class="text-xs text-slate-500 dark:text-gray-400 truncate block"
-              >@chouette.cc</span
-            >
-          </div>
-        </a>
-
-        <nav class="flex-grow space-y-1 lg:space-y-2">
-          <a
-            href="#"
-            class="disabled-button flex items-center p-2 lg:py-2.5 lg:px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 group transition-colors duration-150"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-white flex-shrink-0"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h7.5"
-              />
-            </svg>
-            <span class="ml-3 hidden lg:inline text-sm">Accueil</span>
-          </a>
-          <a
-            href="#"
-            class="disabled-button flex items-center p-2 lg:py-2.5 lg:px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 group transition-colors duration-150"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-white flex-shrink-0"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
-              />
-            </svg>
-            <span class="ml-3 hidden lg:inline text-sm">Notifications</span>
-          </a>
-          <a
-            href="#"
-            class="disabled-button flex items-center p-2 lg:py-2.5 lg:px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 group transition-colors duration-150"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-white flex-shrink-0"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
-              />
-            </svg>
-            <span class="ml-3 hidden lg:inline text-sm">Messages</span>
-          </a>
-          <a
-            href="#"
-            class="disabled-button flex items-center p-2 lg:py-2.5 lg:px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 group transition-colors duration-150"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-white flex-shrink-0"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
-              />
-            </svg>
-            <span class="ml-3 hidden lg:inline text-sm">Collections</span>
-          </a>
-          <a
-            href="#"
-            class="disabled-button flex items-center p-2 lg:py-2.5 lg:px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 group transition-colors duration-150"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-white flex-shrink-0"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"
-              />
-            </svg>
-            <span class="ml-3 hidden lg:inline text-sm">Abonnements</span>
-          </a>
-          <a
-            href="#"
-            class="disabled-button flex items-center p-2 lg:py-2.5 lg:px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 group transition-colors duration-150"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-white flex-shrink-0"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-              />
-            </svg>
-            <span class="ml-3 hidden lg:inline text-sm">Mon Profil</span>
-          </a>
-          <a
-            href="#"
-            class="disabled-button flex items-center p-2 lg:py-2.5 lg:px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 group transition-colors duration-150"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-white flex-shrink-0"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
-              />
-            </svg>
-            <span class="ml-3 hidden lg:inline text-sm">Plus</span>
-          </a>
-        </nav>
-
-        <div class="pt-3 mt-3 border-t border-gray-200 dark:border-slate-700">
+        <!-- Brand + Visitor Avatar -->
+        <div class="flex items-center justify-center xl:justify-between px-2 mb-5">
           <button
-            id="theme-toggle"
             type="button"
-            class="w-full flex items-center justify-center lg:justify-start p-2 lg:py-2.5 lg:px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 group transition-colors duration-150"
+            data-action="go-home"
+            class="flex items-center gap-2.5 group focus:outline-none"
+            title="OnlyOwl"
           >
-            <svg
-              id="theme-toggle-dark-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-white hidden flex-shrink-0"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
-              />
-            </svg>
-            <svg
-              id="theme-toggle-light-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-white hidden flex-shrink-0"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-6.364-.386l1.591-1.591M3 12h2.25m.386-6.364l1.591 1.591"
-              />
-            </svg>
-            <span class="ml-3 hidden lg:inline text-sm">Thème</span>
+            <img
+              src="assets/logo.png"
+              alt="Logo OnlyOwl"
+              class="w-8 h-8 object-contain shrink-0"
+              onerror="this.onerror=null;this.src='https://placehold.co/32x32/00AFF0/FFFFFF?text=OO';"
+            />
+            <span class="hidden xl:inline text-[21px] font-extrabold tracking-tight text-[var(--text)]">
+              Only<span class="text-[#00AFF0]">Owl</span>
+            </span>
+          </button>
+
+          <button
+            type="button"
+            data-action="open-profile-settings"
+            class="hidden xl:flex relative w-9 h-9 rounded-full bg-[#00AFF0]/15 text-[#00AFF0] font-bold text-xs items-center justify-center border border-[#00AFF0]/30 hover:bg-[#00AFF0]/25 transition"
+            title="Votre profil visiteur"
+          >
+            <span id="sidebar-visitor-initials">VN</span>
+            <span
+              class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-[#35C759] border-2 border-[var(--bg)]"
+            ></span>
           </button>
         </div>
 
-        <div
-          class="mt-auto pt-3 border-t border-gray-200 dark:border-slate-700"
-        >
+        <!-- Nav Links -->
+        <nav class="space-y-1 flex-1" aria-label="Navigation principale">
+          <button type="button" class="of-nav-item is-active justify-center xl:justify-start" data-nav="home" data-action="go-home" title="Accueil">
+            <svg class="w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75" />
+            </svg>
+            <span class="hidden xl:inline">Accueil</span>
+          </button>
+
+          <button type="button" class="of-nav-item justify-center xl:justify-start relative" data-nav="notifications" data-action="open-notifications" title="Notifications">
+            <div class="relative shrink-0">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+              </svg>
+              <span
+                id="notif-badge-desktop"
+                class="hidden absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] px-1 rounded-full bg-[#00AFF0] text-white text-[10px] font-bold flex items-center justify-center"
+              ></span>
+            </div>
+            <span class="hidden xl:inline">Notifications</span>
+          </button>
+
+          <button type="button" class="of-nav-item justify-center xl:justify-start relative" data-nav="messages" data-action="open-dm" title="Messages">
+            <div class="relative shrink-0">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
+              </svg>
+              <span
+                id="dm-badge-desktop"
+                class="hidden absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] px-1 rounded-full bg-[#00AFF0] text-white text-[10px] font-bold flex items-center justify-center"
+              ></span>
+            </div>
+            <span class="hidden xl:inline">Messages</span>
+          </button>
+
+          <button type="button" class="of-nav-item justify-center xl:justify-start" data-nav="collections" data-action="open-collections" title="Collections">
+            <svg class="w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+            </svg>
+            <span class="hidden xl:inline">Collections</span>
+          </button>
+
+          <button type="button" class="of-nav-item justify-center xl:justify-start" data-nav="subscriptions" data-action="open-subscriptions" title="Abonnements">
+            <svg class="w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+            </svg>
+            <span class="hidden xl:inline">Abonnements</span>
+          </button>
+
+          <button type="button" class="of-nav-item justify-center xl:justify-start" data-nav="card" data-action="open-card-modal" title="Ajouter une carte">
+            <svg class="w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z" />
+            </svg>
+            <span class="hidden xl:inline">Ajouter une carte</span>
+          </button>
+
+          <button type="button" class="of-nav-item justify-center xl:justify-start" data-nav="profile" data-action="open-profile-settings" title="Mon profil">
+            <svg class="w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            <span class="hidden xl:inline">Mon profil</span>
+          </button>
+
+          <button type="button" id="theme-toggle-desktop" class="of-nav-item justify-center xl:justify-start" data-action="toggle-theme" title="Changer le thème">
+            <svg class="w-6 h-6 shrink-0 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+            </svg>
+            <svg class="w-6 h-6 shrink-0 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+            </svg>
+            <span class="hidden xl:inline">Mode sombre</span>
+          </button>
+        </nav>
+
+        <!-- New Post CTA (Signature OF rounded-full blue button) -->
+        <div class="pt-4">
           <button
             type="button"
-            class="disabled-button w-full flex items-center justify-center lg:justify-start bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold p-2 lg:py-2.5 lg:px-3 rounded-lg transition-colors duration-150"
+            data-action="new-post-easter-egg"
+            class="of-btn-primary w-full py-3 px-3 xl:px-5 text-xs uppercase flex items-center justify-center gap-2 shadow-sm"
+            title="Nouvelle publication"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6 flex-shrink-0"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 4.5v15m7.5-7.5h-15"
-              />
+            <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
-            <span class="ml-2 hidden lg:inline text-sm"
-              >Nouvelle publication</span
-            >
+            <span class="hidden xl:inline">Nouvelle publication</span>
           </button>
         </div>
       </aside>
 
-      <div class="main-content-area bg-gray-50 dark:bg-slate-950 no-scrollbar">
-        <div class="max-w-4xl mx-auto">
-          <header class="relative">
-            <div>
-              <img
-                src="assets/banner.jpeg"
-                alt="Bannière de la forêt de Chouette"
-                class="w-full h-48 md:h-64 lg:h-80 object-cover"
-                onerror="this.onerror=null;this.src='https://placehold.co/1200x350/6B7280/E5E7EB?text=Bannière+Non+Trouvée';"
-              />
+      <!-- CENTER PROFILE & FEED COLUMN -->
+      <div
+        id="center-column"
+        class="flex-1 min-w-0 max-w-[632px] md:border-x border-[var(--border)] bg-[var(--bg)] pb-20 md:pb-8 relative"
+      >
+        <!-- Sticky Compact Header (fades in when banner scrolls away) -->
+        <div
+          id="sticky-profile-bar"
+          class="fixed top-0 z-30 h-[56px] px-4 flex items-center justify-between opacity-0 pointer-events-none -translate-y-2"
+        >
+          <div class="flex items-center gap-3 min-w-0">
+            <button
+              type="button"
+              data-action="go-home"
+              class="p-1.5 -ml-1.5 rounded-full hover:bg-[var(--bg-subtle)] text-[var(--text)]"
+              aria-label="Retour en haut"
+            >
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+              </svg>
+            </button>
+            <div class="min-w-0">
+              <div class="flex items-center gap-1">
+                <span class="font-bold text-[15px] truncate">Chouette</span>
+                <svg class="w-4 h-4 text-[#00AFF0] shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-label="Compte vérifié">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.25 14.5-3.75-3.75 1.41-1.41 2.34 2.34 5.34-5.34 1.41 1.41-6.75 6.75z" />
+                </svg>
+              </div>
+              <div class="flex items-center gap-2.5 text-[11px] text-[var(--muted)]">
+                <span>123 photos</span>
+                <span>•</span>
+                <span>45 vidéos</span>
+                <span>•</span>
+                <span>1,2M j'aime</span>
+              </div>
             </div>
-            <div class="relative px-4">
-              <div
-                class="flex flex-col sm:flex-row items-center sm:items-end space-x-0 sm:space-x-5"
-              >
+          </div>
+
+          <button
+            type="button"
+            data-action="open-subscribe"
+            class="sticky-sub-btn of-btn-primary text-[11px] uppercase px-4 py-1.5 shrink-0"
+          >
+            S'abonner
+          </button>
+        </div>
+
+        <!-- PROFILE HEADER & BANNER -->
+        <header id="profile-header">
+          <!-- Cover Banner with Top Scrim Overlay (Signature OnlyFans Layout) -->
+          <div class="relative h-[184px] sm:h-[214px] w-full overflow-hidden bg-slate-900">
+            <img
+              src="assets/banner.jpeg"
+              alt="Bannière OnlyOwl — Chouette en bikini rose"
+              class="w-full h-full object-cover object-[50%_36%] cursor-pointer hover:scale-[1.01] transition-transform duration-300"
+              data-action="open-lightbox-single"
+              data-src="assets/banner.jpeg"
+              data-caption="Bannière officielle de Chouette — Edition Été 🦩🦉"
+              onerror="this.onerror=null;this.src='https://placehold.co/1200x400/1E293B/FFFFFF?text=Banniere+OnlyOwl';"
+            />
+
+            <!-- Top dark gradient scrim -->
+            <div
+              class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/75 via-black/35 to-transparent px-4 pt-3 flex items-start justify-between text-white pointer-events-none"
+            >
+              <div class="flex items-center gap-3 pointer-events-auto">
+                <button
+                  type="button"
+                  data-action="go-home"
+                  class="p-1.5 -ml-1.5 rounded-full hover:bg-white/15 transition"
+                  aria-label="Accueil"
+                >
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                  </svg>
+                </button>
+                <div>
+                  <div class="flex items-center gap-1.5">
+                    <h1 class="text-[18px] font-bold leading-tight drop-shadow-sm">Chouette</h1>
+                    <svg class="w-[18px] h-[18px] text-white drop-shadow-sm" viewBox="0 0 24 24" fill="currentColor" aria-label="Compte vérifié">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.25 14.5-3.75-3.75 1.41-1.41 2.34 2.34 5.34-5.34 1.41 1.41-6.75 6.75z" />
+                    </svg>
+                  </div>
+                  <div class="flex items-center gap-3 text-xs text-white/90 mt-0.5 font-medium">
+                    <span class="inline-flex items-center gap-1" title="Photos">
+                      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 19.5h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Z" />
+                      </svg>
+                      123
+                    </span>
+                    <span class="inline-flex items-center gap-1" title="Vidéos">
+                      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+                      </svg>
+                      45
+                    </span>
+                    <span class="inline-flex items-center gap-1" title="Audio ASMR">
+                      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />
+                      </svg>
+                      12
+                    </span>
+                    <span class="inline-flex items-center gap-1" title="J'aime totaux">
+                      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                      </svg>
+                      <span id="header-total-likes">1,2M</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Top right options button -->
+              <div class="flex items-center gap-1 pointer-events-auto">
+                <button
+                  type="button"
+                  data-action="toggle-theme"
+                  class="md:hidden p-2 rounded-full hover:bg-white/15 transition"
+                  aria-label="Changer le thème"
+                  title="Changer le thème"
+                >
+                  <svg class="w-5 h-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                  </svg>
+                  <svg class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  data-action="share-profile"
+                  class="p-2 rounded-full hover:bg-white/15 transition"
+                  aria-label="Partager le profil"
+                  title="Copier le lien du profil"
+                >
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Avatar + Circular Action Buttons Row -->
+          <div class="px-4">
+            <div class="flex items-end justify-between">
+              <div class="relative -mt-12 sm:-mt-14 shrink-0">
                 <img
                   src="assets/avatar.jpg"
                   alt="Photo de profil de Chouette"
-                  class="w-24 h-24 md:w-32 md:h-32 rounded-full profile-avatar-overlap object-cover border-4 border-gray-50 dark:border-slate-950"
-                  onerror="this.onerror=null;this.src='https://placehold.co/128x128/CBD5E1/475569?text=C';"
+                  class="w-[96px] h-[96px] sm:w-[106px] sm:h-[106px] rounded-full object-cover border-[3px] border-[var(--bg)] shadow-sm cursor-pointer bg-slate-200"
+                  data-action="open-lightbox-single"
+                  data-src="assets/avatar.jpg"
+                  data-caption="Chouette (@chouette.cc) — Toujours prête pour un vol nocturne 🦉"
+                  onerror="this.onerror=null;this.src='https://placehold.co/128x128/00AFF0/FFFFFF?text=C';"
                 />
-                <div class="flex-1 mt-4 sm:mt-0 text-center sm:text-left">
-                  <h1
-                    class="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white"
-                  >
-                    Chouette
-                  </h1>
-                  <p class="text-sm text-slate-500 dark:text-gray-400">
-                    @chouette.cc <span class="mx-1">&bull;</span> A rejoint en
-                    Mai 2024
-                  </p>
-                </div>
-                <div class="flex space-x-2 mt-4 sm:mt-0">
-                  <button
-                    type="button"
-                    class="disabled-button bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg text-sm whitespace-nowrap"
-                  >
-                    S'abonner (Gratuit)
-                  </button>
-                  <button
-                    type="button"
-                    class="disabled-button bg-gray-200 hover:bg-gray-300 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 font-semibold py-2 px-4 rounded-lg text-sm"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 inline-block mr-1"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
-                      />
-                    </svg>
-                    Message
-                  </button>
-                  <button
-                    type="button"
-                    class="disabled-button bg-gray-200 hover:bg-gray-300 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 font-semibold py-2 px-4 rounded-lg text-sm"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 inline-block mr-1"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M21 11.25v8.25a2.25 2.25 0 0 1-2.25 2.25H5.25a2.25 2.25 0 0 1-2.25-2.25v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0H9.375m0 0A2.625 2.625 0 1 0 6.75 10.125v8.25"
-                      />
-                    </svg>
-                    Pourboire
-                  </button>
-                </div>
+                <span
+                  class="absolute bottom-1.5 right-1.5 w-4 h-4 rounded-full bg-[#35C759] border-[2.5px] border-[var(--bg)]"
+                  title="Disponible maintenant"
+                ></span>
               </div>
-              <div
-                class="mt-6 pb-4 border-b border-gray-300 dark:border-slate-700"
-              >
-                <p
-                  class="text-slate-600 dark:text-gray-300 text-sm leading-relaxed"
+
+              <!-- Signature OF Circular Action Icons -->
+              <div class="flex items-center gap-2 pt-3">
+                <button
+                  type="button"
+                  class="of-icon-circle"
+                  data-action="open-tip"
+                  title="Envoyer un pourboire"
+                  aria-label="Envoyer un pourboire"
                 >
-                  Exploratrice des cieux nocturnes et photographe amatrice de la
-                  Voie lactée. Hooo-hooo ! 🦉✨ #OnlyOwl #NuitMagique
-                  #ChouetteVie
-                </p>
-                <div
-                  class="flex space-x-6 mt-4 text-sm text-slate-500 dark:text-gray-400"
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.9">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 11.219 12.768 11 12 11c-.768 0-1.536.219-2.121.659-.922.689-.428 2.013.182 2.598Z" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="of-icon-circle"
+                  data-action="open-dm"
+                  title="Envoyer un message privé"
+                  aria-label="Envoyer un message privé"
                 >
-                  <span
-                    ><strong class="text-slate-700 dark:text-white">123</strong>
-                    Posts</span
-                  >
-                  <span
-                    ><strong class="text-slate-700 dark:text-white"
-                      >4.5K</strong
-                    >
-                    Photos</span
-                  >
-                  <span
-                    ><strong class="text-slate-700 dark:text-white"
-                      >1.2K</strong
-                    >
-                    Vidéos</span
-                  >
-                  <span
-                    ><strong class="text-slate-700 dark:text-white"
-                      >1.2M</strong
-                    >
-                    J'aime</span
-                  >
-                </div>
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.9">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  id="favorite-creator-btn"
+                  class="of-icon-circle"
+                  data-action="toggle-favorite-creator"
+                  title="Ajouter aux favoris"
+                  aria-label="Ajouter aux favoris"
+                >
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.9">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="of-icon-circle"
+                  data-action="share-profile"
+                  title="Partager le profil"
+                  aria-label="Partager le profil"
+                >
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.9">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z" />
+                  </svg>
+                </button>
               </div>
             </div>
-          </header>
 
-          <nav
-            class="px-4 sticky top-0 bg-gray-50 dark:bg-slate-950 z-10 border-b border-gray-300 dark:border-slate-700"
-          >
-            <div
-              class="flex space-x-2 sm:space-x-4 overflow-x-auto no-scrollbar -mb-px"
-            >
+            <!-- Creator Name, Handle, Status & Bio -->
+            <div class="mt-3 pb-4">
+              <div class="flex items-center gap-1.5">
+                <h2 class="text-[20px] font-bold leading-snug text-[var(--text)]">Chouette</h2>
+                <svg class="w-5 h-5 text-[#00AFF0]" viewBox="0 0 24 24" fill="currentColor" aria-label="Créatrice vérifiée">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.25 14.5-3.75-3.75 1.41-1.41 2.34 2.34 5.34-5.34 1.41 1.41-6.75 6.75z" />
+                </svg>
+                <span class="ml-1 text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#00AFF0]/12 text-[#00AFF0]">
+                  Top 0,1% Rapaces
+                </span>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] text-[var(--muted)] mt-0.5">
+                <span>@chouette.cc</span>
+                <span>•</span>
+                <span class="inline-flex items-center gap-1.5 text-[var(--text-secondary)]">
+                  <span class="w-2 h-2 rounded-full bg-[#35C759]"></span>
+                  Disponible maintenant
+                </span>
+              </div>
+
+              <p class="mt-3 text-[15px] leading-relaxed text-[var(--text)]">
+                Exploratrice des cieux nocturnes et photographe amatrice de la Voie lactée. Hooo-hooo ! 🦉✨
+                <button type="button" class="of-hashtag" data-hashtag="OnlyOwl">#OnlyOwl</button>
+                <button type="button" class="of-hashtag" data-hashtag="NuitMagique">#NuitMagique</button>
+                <button type="button" class="of-hashtag" data-hashtag="ChouetteVie">#ChouetteVie</button>
+              </p>
+
+              <!-- Collapsible More Info (authentic OF style) -->
+              <div id="bio-extra-info" class="hidden mt-3 space-y-1.5 text-[13px] text-[var(--text-secondary)]">
+                <p class="text-[14px] text-[var(--text)] mb-2">
+                  Mes plumes sont 100% naturelles, mon regard est garanti sans filtre et je tourne la tête à 270° uniquement pour mes abonnés VIP. 🌙 Réponses en DM toutes les nuits entre 22h et 5h !
+                </p>
+                <div class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[var(--muted)] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                  </svg>
+                  <span>Vieille Grange, Forêt de Brocéliande</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[var(--muted)] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+                  </svg>
+                  <a href="https://chouette.cc/" target="_blank" rel="noopener" class="text-[#00AFF0] hover:underline">
+                    chouette.cc
+                  </a>
+                </div>
+                <div class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[var(--muted)] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0H9.375m0 0A2.625 2.625 0 1 0 6.75 10.125v8.25" />
+                  </svg>
+                  <span>Liste de souhaits : Souris Bio &amp; Perchoir Chauffant</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[var(--muted)] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                  </svg>
+                  <span>Membre depuis Mai 2024</span>
+                </div>
+              </div>
+
               <button
                 type="button"
-                class="disabled-button tab-active font-semibold py-3 px-3 sm:px-4 text-sm border-b-2 focus:outline-none text-blue-600 border-blue-600 dark:text-blue-400 dark:border-blue-400"
+                id="toggle-bio-btn"
+                data-action="toggle-bio"
+                class="mt-2 text-[13px] font-medium text-[#00AFF0] hover:underline focus:outline-none"
               >
-                Posts
-              </button>
-              <button
-                type="button"
-                class="disabled-button tab-inactive text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 font-semibold py-3 px-3 sm:px-4 text-sm border-b-2 border-transparent focus:outline-none"
-              >
-                Photos
-              </button>
-              <button
-                type="button"
-                class="disabled-button tab-inactive text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 font-semibold py-3 px-3 sm:px-4 text-sm border-b-2 border-transparent focus:outline-none"
-              >
-                Vidéos
-              </button>
-              <button
-                type="button"
-                class="disabled-button tab-inactive text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 font-semibold py-3 px-3 sm:px-4 text-sm border-b-2 border-transparent focus:outline-none"
-              >
-                Audio
-              </button>
-              <button
-                type="button"
-                class="disabled-button tab-inactive text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 font-semibold py-3 px-3 sm:px-4 text-sm border-b-2 border-transparent focus:outline-none"
-              >
-                À propos
-              </button>
-            </div>
-          </nav>
-
-          <main class="p-4 grid grid-cols-1 gap-6">
-            <article
-              class="bg-white dark:bg-slate-800 rounded-lg shadow-md dark:shadow-slate-700/50 overflow-hidden"
-            >
-              <div class="p-4">
-                <div class="flex items-center mb-3">
-                  <img
-                    src="assets/avatar.jpg"
-                    alt="Avatar de Chouette"
-                    class="w-10 h-10 rounded-full mr-3 object-cover"
-                    onerror="this.onerror=null;this.src='https://placehold.co/40x40/CBD5E1/475569?text=C';"
-                  />
-                  <div>
-                    <span class="font-semibold text-slate-800 dark:text-white"
-                      >Chouette</span
-                    >
-                    <span
-                      class="text-xs text-slate-500 dark:text-gray-400 block"
-                      >@chouette.cc &bull; Il y a quelques minutes</span
-                    >
-                  </div>
-                </div>
-                <p class="text-slate-600 dark:text-gray-300 mb-3 text-sm">
-                  Petite séance photo improvisée au crépuscule... J'ai entendu
-                  dire que mes plumes sous cette lumière étaient
-                  particulièrement... envoûtantes. Qu'en pensez-vous, mes petits
-                  oisillons ? 😉🦉 #ChouetteCharmeuse #GoldenHourFeathers
-                </p>
-              </div>
-              <img
-                src="assets/5.jpeg"
-                alt="Image du post : Chouette se prélassant au crépuscule"
-                class="w-full h-auto object-cover"
-                onerror="this.onerror=null;this.src='https://placehold.co/600x450/9CA3AF/F3F4F6?text=Image+Post+5';"
-              />
-              <div class="p-4">
-                <div
-                  class="flex items-center space-x-4 text-sm text-slate-500 dark:text-gray-400 mb-3"
-                >
-                  <button
-                    type="button"
-                    class="disabled-button flex items-center hover:text-pink-600 dark:hover:text-pink-500"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 mr-1"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
-                      />
-                    </svg>
-                    283 J'aime
-                  </button>
-                  <button
-                    type="button"
-                    class="disabled-button flex items-center hover:text-blue-600 dark:hover:text-blue-400"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 mr-1"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
-                      />
-                    </svg>
-                    2 Commentaires
-                  </button>
-                  <button
-                    type="button"
-                    class="disabled-button flex items-center hover:text-green-600 dark:hover:text-green-400"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 mr-1"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 11.219 12.768 11 12 11c-.768 0-1.536.219-2.121.659-.922.689-.428 2.013.182 2.598Z"
-                      />
-                    </svg>
-                    Pourboire
-                  </button>
-                </div>
-                <div
-                  class="space-y-2 text-xs border-t border-gray-200 dark:border-slate-700 pt-3"
-                >
-                  <div class="flex">
-                    <img
-                      src="https://placehold.co/24x24/7C3AED/FFFFFF?text=HC"
-                      alt="Avatar Hibou Coquinou"
-                      class="w-6 h-6 rounded-full mr-2 object-cover"
-                    />
-                    <p>
-                      <strong class="text-slate-700 dark:text-gray-300"
-                        >@HibouCoquinou:</strong
-                      >
-                      Hooo la la, Chouette ! Tu nous fais tourner la tête ! 🔥
-                      <span class="text-slate-400 dark:text-gray-500 ml-1"
-                        >Il y a 2 min</span
-                      >
-                    </p>
-                  </div>
-                  <div class="flex">
-                    <img
-                      src="https://placehold.co/24x24/F43F5E/FFFFFF?text=PT"
-                      alt="Avatar Pivert Taquin"
-                      class="w-6 h-6 rounded-full mr-2 object-cover"
-                    />
-                    <p>
-                      <strong class="text-slate-700 dark:text-gray-300"
-                        >@PivertTaquin:</strong
-                      >
-                      Je taperais bien sur cette branche... pour voir si elle
-                      est solide, bien sûr ! 😏
-                      <span class="text-slate-400 dark:text-gray-500 ml-1"
-                        >Il y a 1 min</span
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article
-              class="bg-white dark:bg-slate-800 rounded-lg shadow-md dark:shadow-slate-700/50 overflow-hidden"
-            >
-              <div class="p-4">
-                <div class="flex items-center mb-3">
-                  <img
-                    src="assets/avatar.jpg"
-                    alt="Avatar de Chouette"
-                    class="w-10 h-10 rounded-full mr-3 object-cover"
-                    onerror="this.onerror=null;this.src='https://placehold.co/40x40/CBD5E1/475569?text=C';"
-                  />
-                  <div>
-                    <span class="font-semibold text-slate-800 dark:text-white"
-                      >Chouette</span
-                    >
-                    <span
-                      class="text-xs text-slate-500 dark:text-gray-400 block"
-                      >@chouette.cc &bull; Il y a 1 heure</span
-                    >
-                  </div>
-                </div>
-                <p class="text-slate-600 dark:text-gray-300 mb-3 text-sm">
-                  Un petit bain pour se rafraîchir après une longue nuit de vol.
-                  Attention aux éclaboussures, c'est ma spécialité ! 💦 Qui veut
-                  me rejoindre pour un plongeon ? #BainDeMinuit
-                  #ChouetteAquatique
-                </p>
-              </div>
-              <img
-                src="assets/4.jpeg"
-                alt="Image du post : Chouette prenant un bain"
-                class="w-full h-auto object-cover"
-                onerror="this.onerror=null;this.src='https://placehold.co/600x450/9CA3AF/F3F4F6?text=Image+Post+4';"
-              />
-              <div class="p-4">
-                <div
-                  class="flex items-center space-x-4 text-sm text-slate-500 dark:text-gray-400 mb-3"
-                >
-                  <button
-                    type="button"
-                    class="disabled-button flex items-center hover:text-pink-600 dark:hover:text-pink-500"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 mr-1"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
-                      />
-                    </svg>
-                    251 J'aime
-                  </button>
-                  <button
-                    type="button"
-                    class="disabled-button flex items-center hover:text-blue-600 dark:hover:text-blue-400"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 mr-1"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
-                      />
-                    </svg>
-                    3 Commentaires
-                  </button>
-                  <button
-                    type="button"
-                    class="disabled-button flex items-center hover:text-green-600 dark:hover:text-green-400"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 mr-1"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 11.219 12.768 11 12 11c-.768 0-1.536.219-2.121.659-.922.689-.428 2.013.182 2.598Z"
-                      />
-                    </svg>
-                    Pourboire
-                  </button>
-                </div>
-                <div
-                  class="space-y-2 text-xs border-t border-gray-200 dark:border-slate-700 pt-3"
-                >
-                  <div class="flex">
-                    <img
-                      src="https://placehold.co/24x24/FDBA74/1E293B?text=EB"
-                      alt="Avatar Effraie"
-                      class="w-6 h-6 rounded-full mr-2 object-cover"
-                    />
-                    <p>
-                      <strong class="text-slate-700 dark:text-gray-300"
-                        >@EffraieBella:</strong
-                      >
-                      Toujours aussi pétillante, Chouette ! J'adore ton énergie
-                      ! 💖
-                      <span class="text-slate-400 dark:text-gray-500 ml-1"
-                        >Il y a 30 min</span
-                      >
-                    </p>
-                  </div>
-                  <div class="flex">
-                    <img
-                      src="https://placehold.co/24x24/34D399/FFFFFF?text=CC"
-                      alt="Avatar Canard Colvert"
-                      class="w-6 h-6 rounded-full mr-2 object-cover"
-                    />
-                    <p>
-                      <strong class="text-slate-700 dark:text-gray-300"
-                        >@CanardColvertFan:</strong
-                      >
-                      Si seulement mon bain était aussi glamour ! Canardement
-                      vôtre.
-                      <span class="text-slate-400 dark:text-gray-500 ml-1"
-                        >Il y a 25 min</span
-                      >
-                    </p>
-                  </div>
-                  <div class="flex">
-                    <img
-                      src="assets/sereinesse.webp"
-                      alt="Avatar Sereinesse"
-                      class="w-6 h-6 rounded-full mr-2 object-cover"
-                      onerror="this.onerror=null;this.src='https://placehold.co/24x24/8B5CF6/FFFFFF?text=S';"
-                    />
-                    <p>
-                      <strong class="text-slate-700 dark:text-gray-300"
-                        >@Sereinesse:</strong
-                      >
-                      Bain de minuit de mes rêves , ton plumage crée le
-                      firmament au creux de mes yeux ✨
-                      <span class="text-slate-400 dark:text-gray-500 ml-1"
-                        >Il y a 20 min</span
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article
-              class="bg-white dark:bg-slate-800 rounded-lg shadow-md dark:shadow-slate-700/50 overflow-hidden"
-            >
-              <div class="p-4">
-                <div class="flex items-center mb-3">
-                  <img
-                    src="assets/avatar.jpg"
-                    alt="Avatar de Chouette"
-                    class="w-10 h-10 rounded-full mr-3 object-cover"
-                    onerror="this.onerror=null;this.src='https://placehold.co/40x40/CBD5E1/475569?text=C';"
-                  />
-                  <div>
-                    <span class="font-semibold text-slate-800 dark:text-white"
-                      >Chouette</span
-                    >
-                    <span
-                      class="text-xs text-slate-500 dark:text-gray-400 block"
-                      >@chouette.cc &bull; Il y a 3 heures</span
-                    >
-                  </div>
-                </div>
-                <p class="text-slate-600 dark:text-gray-300 mb-3 text-sm">
-                  Lever de lune spectaculaire ce soir depuis mon perchoir
-                  préféré. La forêt est si paisible sous cette lumière argentée.
-                  🌕🌲 #MoonlightOwl #PaixNocturne
-                </p>
-              </div>
-              <img
-                src="assets/3.jpeg"
-                alt="Image du post : Chouette et la lune"
-                class="w-full h-auto object-cover"
-                onerror="this.onerror=null;this.src='https://placehold.co/600x450/9CA3AF/F3F4F6?text=Image+Post+3';"
-              />
-              <div class="p-4">
-                <div
-                  class="flex items-center space-x-4 text-sm text-slate-500 dark:text-gray-400 mb-3"
-                >
-                  <button
-                    type="button"
-                    class="disabled-button flex items-center hover:text-pink-600 dark:hover:text-pink-500"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 mr-1"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
-                      />
-                    </svg>
-                    237 J'aime
-                  </button>
-                  <button
-                    type="button"
-                    class="disabled-button flex items-center hover:text-blue-600 dark:hover:text-blue-400"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 mr-1"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
-                      />
-                    </svg>
-                    2 Commentaires
-                  </button>
-                  <button
-                    type="button"
-                    class="disabled-button flex items-center hover:text-green-600 dark:hover:text-green-400"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 mr-1"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 11.219 12.768 11 12 11c-.768 0-1.536.219-2.121.659-.922.689-.428 2.013.182 2.598Z"
-                      />
-                    </svg>
-                    Pourboire
-                  </button>
-                </div>
-                <div
-                  class="space-y-2 text-xs border-t border-gray-200 dark:border-slate-700 pt-3"
-                >
-                  <div class="flex">
-                    <img
-                      src="https://placehold.co/24x24/A5B4FC/1E293B?text=GD"
-                      alt="Avatar Grand Duc"
-                      class="w-6 h-6 rounded-full mr-2 object-cover"
-                    />
-                    <p>
-                      <strong class="text-slate-700 dark:text-gray-300"
-                        >@GrandDucArthur:</strong
-                      >
-                      Superbe cliché, Chouette ! Tu as l'œil.
-                      <span class="text-slate-400 dark:text-gray-500 ml-1"
-                        >Il y a 2h 15min</span
-                      >
-                    </p>
-                  </div>
-                  <div class="flex">
-                    <img
-                      src="https://placehold.co/24x24/FDBA74/1E293B?text=EB"
-                      alt="Avatar Effraie"
-                      class="w-6 h-6 rounded-full mr-2 object-cover"
-                    />
-                    <p>
-                      <strong class="text-slate-700 dark:text-gray-300"
-                        >@EffraieBella:</strong
-                      >
-                      J'aimerais tellement voir ça ! C'est magique. ✨
-                      <span class="text-slate-400 dark:text-gray-500 ml-1"
-                        >Il y a 2h 10min</span
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article
-              class="bg-white dark:bg-slate-800 rounded-lg shadow-md dark:shadow-slate-700/50 overflow-hidden"
-            >
-              <div class="p-4">
-                <div class="flex items-center mb-3">
-                  <img
-                    src="assets/avatar.jpg"
-                    alt="Avatar de Chouette"
-                    class="w-10 h-10 rounded-full mr-3 object-cover"
-                    onerror="this.onerror=null;this.src='https://placehold.co/40x40/CBD5E1/475569?text=C';"
-                  />
-                  <div>
-                    <span class="font-semibold text-slate-800 dark:text-white"
-                      >Chouette</span
-                    >
-                    <span
-                      class="text-xs text-slate-500 dark:text-gray-400 block"
-                      >@chouette.cc &bull; Il y a 6 heures</span
-                    >
-                  </div>
-                </div>
-                <p class="text-slate-600 dark:text-gray-300 mb-3 text-sm">
-                  Petite pause café (enfin, nectar de fleur pour moi !) après
-                  une matinée de chasse aux idées pour mes prochains clichés.
-                  🌸☕ #ChouetteCréative #PauseNectar
-                </p>
-              </div>
-              <img
-                src="assets/2.jpeg"
-                alt="Image du post : Chouette et sa pause nectar"
-                class="w-full h-auto object-cover"
-                onerror="this.onerror=null;this.src='https://placehold.co/600x400/9CA3AF/F3F4F6?text=Image+Post+2';"
-              />
-              <div class="p-4">
-                <div
-                  class="flex items-center space-x-4 text-sm text-slate-500 dark:text-gray-400 mb-3"
-                >
-                  <button
-                    type="button"
-                    class="disabled-button flex items-center text-pink-600 dark:text-pink-500"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="none"
-                      class="w-5 h-5 mr-1"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
-                      />
-                    </svg>
-                    189 J'aime (Déjà liké)
-                  </button>
-                  <button
-                    type="button"
-                    class="disabled-button flex items-center hover:text-blue-600 dark:hover:text-blue-400"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 mr-1"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
-                      />
-                    </svg>
-                    2 Commentaires
-                  </button>
-                  <button
-                    type="button"
-                    class="disabled-button flex items-center hover:text-green-600 dark:hover:text-green-400"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 mr-1"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 11.219 12.768 11 12 11c-.768 0-1.536.219-2.121.659-.922.689-.428 2.013.182 2.598Z"
-                      />
-                    </svg>
-                    Pourboire
-                  </button>
-                </div>
-                <div
-                  class="space-y-2 text-xs border-t border-gray-200 dark:border-slate-700 pt-3"
-                >
-                  <div class="flex">
-                    <img
-                      src="https://placehold.co/24x24/93C5FD/1E293B?text=PV"
-                      alt="Avatar Pigeon"
-                      class="w-6 h-6 rounded-full mr-2 object-cover"
-                    />
-                    <p>
-                      <strong class="text-slate-700 dark:text-gray-300"
-                        >@PigeonVoyageur77:</strong
-                      >
-                      Tu as toujours de bonnes idées Chouette !
-                      <span class="text-slate-400 dark:text-gray-500 ml-1"
-                        >Il y a 2h</span
-                      >
-                    </p>
-                  </div>
-                  <div class="flex">
-                    <img
-                      src="https://placehold.co/24x24/FDE68A/1E293B?text=HS"
-                      alt="Avatar Hulotte"
-                      class="w-6 h-6 rounded-full mr-2 object-cover"
-                    />
-                    <p>
-                      <strong class="text-slate-700 dark:text-gray-300"
-                        >@HulotteSophie:</strong
-                      >
-                      Le nectar de fleur, un délice ! Bonne inspiration !
-                      <span class="text-slate-400 dark:text-gray-500 ml-1"
-                        >Il y a 1h 45min</span
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article
-              class="bg-white dark:bg-slate-800 rounded-lg shadow-md dark:shadow-slate-700/50 overflow-hidden"
-            >
-              <div class="p-4">
-                <div class="flex items-center mb-3">
-                  <img
-                    src="assets/avatar.jpg"
-                    alt="Avatar de Chouette"
-                    class="w-10 h-10 rounded-full mr-3 object-cover"
-                    onerror="this.onerror=null;this.src='https://placehold.co/40x40/CBD5E1/475569?text=C';"
-                  />
-                  <div>
-                    <span class="font-semibold text-slate-800 dark:text-white"
-                      >Chouette</span
-                    >
-                    <span
-                      class="text-xs text-slate-500 dark:text-gray-400 block"
-                      >@chouette.cc &bull; Il y a 1 jour</span
-                    >
-                  </div>
-                </div>
-                <p class="text-slate-600 dark:text-gray-300 mb-3 text-sm">
-                  Retour d'un petit voyage d'exploration dans la vieille grange
-                  abandonnée. Plein de recoins secrets et d'histoires à imaginer
-                  ! 🏚️🦉 #AventureChouette #LieuxMystérieux
-                </p>
-              </div>
-              <img
-                src="assets/1.jpeg"
-                alt="Image du post : Chouette explorant une grange"
-                class="w-full h-auto object-cover"
-                onerror="this.onerror=null;this.src='https://placehold.co/500x500/9CA3AF/F3F4F6?text=Image+Post+1';"
-              />
-              <div class="p-4">
-                <div
-                  class="flex items-center space-x-4 text-sm text-slate-500 dark:text-gray-400 mb-3"
-                >
-                  <button
-                    type="button"
-                    class="disabled-button flex items-center hover:text-pink-600 dark:hover:text-pink-500"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 mr-1"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
-                      />
-                    </svg>
-                    305 J'aime
-                  </button>
-                  <button
-                    type="button"
-                    class="disabled-button flex items-center hover:text-blue-600 dark:hover:text-blue-400"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 mr-1"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
-                      />
-                    </svg>
-                    3 Commentaires
-                  </button>
-                  <button
-                    type="button"
-                    class="disabled-button flex items-center hover:text-green-600 dark:hover:text-green-400"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 mr-1"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 11.219 12.768 11 12 11c-.768 0-1.536.219-2.121.659-.922.689-.428 2.013.182 2.598Z"
-                      />
-                    </svg>
-                    Pourboire
-                  </button>
-                </div>
-                <div
-                  class="space-y-2 text-xs border-t border-gray-200 dark:border-slate-700 pt-3"
-                >
-                  <div class="flex">
-                    <img
-                      src="https://placehold.co/24x24/D1D5DB/1E293B?text=FR"
-                      alt="Avatar Faucon"
-                      class="w-6 h-6 rounded-full mr-2 object-cover"
-                    />
-                    <p>
-                      <strong class="text-slate-700 dark:text-gray-300"
-                        >@FauconRapido:</strong
-                      >
-                      Prudente dans tes explorations, Chouette ! Mais ça a l'air
-                      passionnant.
-                      <span class="text-slate-400 dark:text-gray-500 ml-1"
-                        >Il y a 23h</span
-                      >
-                    </p>
-                  </div>
-                  <div class="flex">
-                    <img
-                      src="https://placehold.co/24x24/9CA3AF/1E293B?text=MM"
-                      alt="Avatar Merle"
-                      class="w-6 h-6 rounded-full mr-2 object-cover"
-                    />
-                    <p>
-                      <strong class="text-slate-700 dark:text-gray-300"
-                        >@MerleMoqueurJoe:</strong
-                      >
-                      Tu devrais écrire un livre sur tes aventures !
-                      <span class="text-slate-400 dark:text-gray-500 ml-1"
-                        >Il y a 22h 30min</span
-                      >
-                    </p>
-                  </div>
-                  <div class="flex">
-                    <img
-                      src="https://placehold.co/24x24/4B5563/F3F4F6?text=CA"
-                      alt="Avatar Chouette Academique"
-                      class="w-6 h-6 rounded-full mr-2 object-cover"
-                    />
-                    <p>
-                      <strong class="text-slate-700 dark:text-gray-300"
-                        >@ChouetteAcademique:</strong
-                      >
-                      Les structures anciennes offrent souvent des habitats
-                      riches pour notre espèce. Bonne trouvaille !
-                      <span class="text-slate-400 dark:text-gray-500 ml-1"
-                        >Il y a 22h</span
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </main>
-
-          <footer
-            class="text-center py-8 text-xs text-slate-500 dark:text-gray-500"
-          >
-            <p>&copy; 2025 OnlyOwl. Tous droits réservés aux chouettes.</p>
-            <p>Ceci est un site factice à des fins de démonstration.</p>
-          </footer>
-        </div>
-      </div>
-
-      <aside
-        id="right-sidebar"
-        class="sidebar bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-l border-gray-200 dark:border-slate-700 w-72 p-4 space-y-6 no-scrollbar hidden xl:flex xl:flex-col"
-      >
-        <div class="bg-gray-50 dark:bg-slate-700 p-4 rounded-lg shadow-md">
-          <h3 class="text-lg font-semibold text-slate-800 dark:text-white mb-2">
-            Abonnez-vous à Chouette !
-          </h3>
-          <img
-            src="assets/avatar.jpg"
-            alt="Chouette"
-            class="rounded-lg w-full h-32 object-cover mb-3"
-            onerror="this.onerror=null;this.src='https://placehold.co/256x128/CBD5E1/475569?text=Chouette';"
-          />
-          <p class="text-sm text-slate-500 dark:text-gray-400 mb-3">
-            Accédez à du contenu exclusif, des photos de vol nocturne et des
-            anecdotes de la vie de Chouette.
-          </p>
-          <button
-            type="button"
-            class="disabled-button w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg text-sm"
-          >
-            S'abonner gratuitement
-          </button>
-        </div>
-
-        <div class="bg-gray-50 dark:bg-slate-700 p-4 rounded-lg shadow-md">
-          <h3 class="text-lg font-semibold text-slate-800 dark:text-white mb-2">
-            Suggestions
-          </h3>
-          <div class="space-y-3">
-            <div class="flex items-center space-x-3">
-              <img
-                src="https://placehold.co/40x40/A5B4FC/1E293B?text=GD"
-                alt="Avatar Grand Duc"
-                class="w-10 h-10 rounded-full object-cover"
-              />
-              <div>
-                <p class="text-sm font-semibold text-slate-700 dark:text-white">
-                  GrandDucArthur
-                </p>
-                <p class="text-xs text-slate-500 dark:text-gray-400">
-                  @GrandDucArthur
-                </p>
-              </div>
-              <button
-                class="disabled-button ml-auto text-xs bg-gray-200 hover:bg-gray-300 dark:bg-slate-600 dark:hover:bg-slate-500 text-slate-700 dark:text-white py-1 px-2 rounded"
-              >
-                Suivre
-              </button>
-            </div>
-            <div class="flex items-center space-x-3">
-              <img
-                src="https://placehold.co/40x40/FDBA74/1E293B?text=EB"
-                alt="Avatar Effraie"
-                class="w-10 h-10 rounded-full object-cover"
-              />
-              <div>
-                <p class="text-sm font-semibold text-slate-700 dark:text-white">
-                  EffraieBella
-                </p>
-                <p class="text-xs text-slate-500 dark:text-gray-400">
-                  @EffraieBella
-                </p>
-              </div>
-              <button
-                class="disabled-button ml-auto text-xs bg-gray-200 hover:bg-gray-300 dark:bg-slate-600 dark:hover:bg-slate-500 text-slate-700 dark:text-white py-1 px-2 rounded"
-              >
-                Suivre
+                Plus d'infos
               </button>
             </div>
           </div>
+        </header>
+
+        <!-- SUBSCRIPTION PANEL (Signature OF section) -->
+        <div class="of-section-gap"></div>
+        <section class="px-4 py-4" aria-label="Abonnement">
+          <div class="flex items-center justify-between mb-2.5">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-[var(--muted)]">Abonnement</h3>
+            <span
+              id="promo-badge"
+              class="text-[11px] font-semibold text-[#00AFF0] bg-[#00AFF0]/10 px-2.5 py-0.5 rounded-full"
+            >
+              Offre limitée • 100% Gratuit
+            </span>
+          </div>
+
+          <p id="sub-status-note" class="text-xs text-[var(--muted)] mb-3">
+            Offre de bienvenue — Abonnez-vous gratuitement pour débloquer les clichés exclusifs de Chouette et recevoir un message privé.
+          </p>
+
+          <!-- Main Subscribe Button -->
+          <button
+            type="button"
+            id="main-subscribe-btn"
+            data-action="open-subscribe"
+            class="of-btn-primary w-full py-3 px-5 flex items-center justify-between text-[13px] uppercase"
+          >
+            <span id="main-subscribe-label">S'abonner</span>
+            <span id="main-subscribe-price">Gratuit</span>
+          </button>
+
+          <!-- Subscription Bundles Accordion -->
+          <div class="mt-3 pt-3 border-t border-[var(--border)]">
+            <button
+              type="button"
+              id="bundles-toggle-btn"
+              data-action="toggle-bundles"
+              class="w-full flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[var(--muted)] hover:text-[var(--text)] transition"
+            >
+              <span>Forfaits d'abonnement VIP</span>
+              <svg id="bundles-chevron" class="w-4 h-4 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+
+            <div id="bundles-list" class="hidden mt-3 space-y-2">
+              <button
+                type="button"
+                data-action="open-bundle"
+                data-bundle-title="Pack Plumes VIP (3 mois)"
+                data-bundle-price="5 Mulots"
+                data-bundle-note="Économisez 20% • Inclut 1 hululement dédicacé"
+                class="of-btn-primary w-full py-2.5 px-5 flex items-center justify-between text-xs uppercase"
+              >
+                <span>3 mois (20% de réduction)</span>
+                <span>5 Mulots total</span>
+              </button>
+              <button
+                type="button"
+                data-action="open-bundle"
+                data-bundle-title="Accès Nichoir Privé (6 mois)"
+                data-bundle-price="8 Mulots"
+                data-bundle-note="Économisez 35% • Visite guidée de la vieille grange"
+                class="of-btn-primary w-full py-2.5 px-5 flex items-center justify-between text-xs uppercase"
+              >
+                <span>6 mois (35% de réduction)</span>
+                <span>8 Mulots total</span>
+              </button>
+              <button
+                type="button"
+                data-action="open-bundle"
+                data-bundle-title="Parrain de la Forêt (12 mois)"
+                data-bundle-price="12 Mulots"
+                data-bundle-note="Économisez 50% • Badge Rapace d'Or sur vos commentaires"
+                class="of-btn-primary w-full py-2.5 px-5 flex items-center justify-between text-xs uppercase"
+              >
+                <span>12 mois (50% de réduction)</span>
+                <span>12 Mulots total</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- TABS BAR (Signature OF 2-tab bar: POSTS & MÉDIAS) -->
+        <div class="of-section-gap"></div>
+        <div class="sticky top-0 md:top-0 z-20 bg-[var(--bg)] border-b border-[var(--border)] flex" role="tablist">
+          <button
+            type="button"
+            id="tab-posts"
+            role="tab"
+            aria-selected="true"
+            data-action="switch-tab"
+            data-tab="posts"
+            class="of-tab-btn is-active"
+          >
+            <span id="posts-tab-count">9</span> Posts
+          </button>
+          <button
+            type="button"
+            id="tab-media"
+            role="tab"
+            aria-selected="false"
+            data-action="switch-tab"
+            data-tab="media"
+            class="of-tab-btn"
+          >
+            <span id="media-tab-count">8</span> Médias
+          </button>
         </div>
+
+        <!-- POSTS TOOLBAR (Sort / Filters / Mobile Search) -->
+        <div id="posts-toolbar" class="px-4 py-3 border-b border-[var(--border)] space-y-2.5">
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar" id="post-filter-chips">
+              <button type="button" class="of-chip is-active" data-post-filter="all">Récents</button>
+              <button type="button" class="of-chip" data-post-filter="popular">Populaires</button>
+              <button type="button" class="of-chip" data-post-filter="free">Gratuits</button>
+              <button type="button" class="of-chip" data-post-filter="exclusive">Exclusifs 🔒</button>
+            </div>
+            <button
+              type="button"
+              data-action="toggle-mobile-search"
+              class="lg:hidden p-2 rounded-full text-[var(--muted)] hover:text-[#00AFF0] hover:bg-[var(--of-blue-soft)] shrink-0"
+              aria-label="Rechercher"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Mobile Search Input (collapsible) -->
+          <div id="mobile-search-box" class="hidden lg:hidden relative">
+            <input
+              type="search"
+              id="mobile-search-input"
+              placeholder="Rechercher dans les publications..."
+              class="w-full rounded-full bg-[var(--bg-subtle)] border border-[var(--border)] px-4 py-2 text-sm text-[var(--text)] placeholder:text-[var(--muted)] focus:outline-none focus:border-[#00AFF0]"
+            />
+          </div>
+
+          <!-- Active Hashtag / Search Banner -->
+          <div id="active-filter-banner" class="hidden flex items-center justify-between bg-[#00AFF0]/10 text-[#00AFF0] px-3 py-1.5 rounded-lg text-xs font-medium">
+            <span id="active-filter-label"></span>
+            <button type="button" data-action="clear-filters" class="font-bold hover:underline ml-2">
+              Effacer ✕
+            </button>
+          </div>
+        </div>
+
+        <!-- MEDIA SUB-FILTERS (Visible only on Médias tab) -->
+        <div id="media-toolbar" class="hidden px-4 py-3 border-b border-[var(--border)]">
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar" id="media-filter-chips">
+            <button type="button" class="of-chip is-active" data-media-filter="all">Tout</button>
+            <button type="button" class="of-chip" data-media-filter="photo">Photos</button>
+            <button type="button" class="of-chip" data-media-filter="video">Vidéos</button>
+            <button type="button" class="of-chip" data-media-filter="audio">Audio</button>
+          </div>
+        </div>
+
+        <!-- DYNAMIC FEED CONTAINER -->
+        <main id="posts-feed" aria-label="Publications de Chouette"></main>
+
+        <!-- DYNAMIC MEDIA 3-COLUMN GRID CONTAINER -->
+        <section id="media-grid" class="hidden p-1 grid grid-cols-3 gap-1" aria-label="Galerie médias"></section>
+
+        <!-- MOBILE FOOTER -->
+        <footer class="lg:hidden px-4 py-8 text-center text-xs text-[var(--muted)] border-t border-[var(--border)] space-y-1">
+          <p class="font-medium">&copy; 2026 OnlyOwl • Tous droits réservés aux chouettes 🦉</p>
+          <p>Site parodique 100% statique — Aucun paiement réel n'est effectué.</p>
+        </footer>
+      </div>
+
+      <!-- RIGHT SIDEBAR (Desktop lg+) -->
+      <aside
+        id="right-sidebar"
+        class="hidden lg:flex flex-col w-[320px] xl:w-[356px] shrink-0 sticky top-0 h-screen overflow-y-auto no-scrollbar px-5 py-4 space-y-5"
+      >
+        <!-- Search Posts Input -->
+        <div class="relative">
+          <svg
+            class="w-4 h-4 text-[var(--muted)] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+          </svg>
+          <input
+            type="search"
+            id="desktop-search-input"
+            placeholder="Rechercher sur le profil..."
+            class="w-full rounded-full bg-[var(--bg)] border border-[var(--border)] pl-10 pr-4 py-2.5 text-sm text-[var(--text)] placeholder:text-[var(--muted)] focus:outline-none focus:border-[#00AFF0] transition"
+          />
+        </div>
+
+        <!-- Sidebar Subscription Card -->
+        <div class="rounded-xl border border-[var(--border)] bg-[var(--card)] p-4">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-[var(--muted)]">Abonnement</span>
+            <span id="sidebar-sub-pill" class="text-[11px] font-semibold text-[#00AFF0]">Gratuit</span>
+          </div>
+          <button
+            type="button"
+            id="sidebar-subscribe-btn"
+            data-action="open-subscribe"
+            class="of-btn-primary w-full py-2.5 px-4 flex items-center justify-between text-xs uppercase"
+          >
+            <span id="sidebar-sub-label">S'abonner</span>
+            <span id="sidebar-sub-price">Gratuit</span>
+          </button>
+          <div id="sidebar-tips-summary" class="hidden mt-3 pt-3 border-t border-[var(--border)] flex items-center justify-between text-xs text-[var(--muted)]">
+            <span>Vos pourboires envoyés</span>
+            <strong id="sidebar-tips-amount" class="text-[#00AFF0]">0 €</strong>
+          </div>
+        </div>
+
+        <!-- Suggestions Widget (Authentic OnlyFans Style) -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-[var(--muted)]">Suggestions</h3>
+            <div class="flex items-center gap-1 text-[var(--muted)]">
+              <button
+                type="button"
+                data-action="suggestions-prev"
+                class="p-1 rounded-full hover:bg-[var(--bg-subtle)] hover:text-[#00AFF0] transition"
+                aria-label="Suggestions précédentes"
+              >
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                data-action="suggestions-next"
+                class="p-1 rounded-full hover:bg-[var(--bg-subtle)] hover:text-[#00AFF0] transition"
+                aria-label="Suggestions suivantes"
+              >
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div id="suggestions-list" class="space-y-3"></div>
+        </div>
+
+        <!-- Sidebar Footer Links -->
+        <footer class="pt-3 border-t border-[var(--border)] text-[11px] text-[var(--muted)] leading-relaxed space-y-1.5">
+          <div class="flex flex-wrap gap-x-2.5 gap-y-1">
+            <button type="button" data-action="show-about" class="hover:text-[#00AFF0]">À propos</button>
+            <span>•</span>
+            <button type="button" data-action="show-about" class="hover:text-[#00AFF0]">Confidentialité</button>
+            <span>•</span>
+            <button type="button" data-action="show-about" class="hover:text-[#00AFF0]">Conditions</button>
+            <span>•</span>
+            <button type="button" data-action="open-card-modal" class="hover:text-[#00AFF0]">Carte Plumier</button>
+          </div>
+          <p>&copy; 2026 OnlyOwl • Parodie 100% statique hébergée sur GitHub Pages.</p>
+          <p>Aucune chouette (ni souris) n'a été facturée.</p>
+        </footer>
       </aside>
     </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // console.log('DOM fully loaded and parsed'); // Log: DOM ready
+    <!-- MOBILE BOTTOM NAVIGATION BAR (Authentic OF mobile UX) -->
+    <nav
+      class="md:hidden fixed bottom-0 inset-x-0 z-40 h-[56px] bg-[var(--bg)] border-t border-[var(--border)] flex items-center justify-around px-2"
+      aria-label="Navigation mobile"
+    >
+      <button type="button" data-action="go-home" class="p-2 text-[var(--text)]" aria-label="Accueil">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.9">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75" />
+        </svg>
+      </button>
+      <button type="button" data-action="open-notifications" class="p-2 text-[var(--muted)] relative" aria-label="Notifications">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.9">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+        </svg>
+        <span
+          id="notif-badge-mobile"
+          class="hidden absolute top-1 right-1 min-w-[16px] h-[16px] px-1 rounded-full bg-[#00AFF0] text-white text-[9px] font-bold flex items-center justify-center"
+        ></span>
+      </button>
+      <button type="button" data-action="new-post-easter-egg" class="p-2 text-[var(--muted)]" aria-label="Nouvelle publication">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.9">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+      </button>
+      <button type="button" data-action="open-dm" class="p-2 text-[var(--muted)] relative" aria-label="Messages">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.9">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
+        </svg>
+        <span
+          id="dm-badge-mobile"
+          class="hidden absolute top-1 right-1 min-w-[16px] h-[16px] px-1 rounded-full bg-[#00AFF0] text-white text-[9px] font-bold flex items-center justify-center"
+        ></span>
+      </button>
+      <button type="button" data-action="open-collections" class="p-2 text-[var(--muted)]" aria-label="Collections">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.9">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+        </svg>
+      </button>
+    </nav>
 
-        const themeToggleDarkIcon = document.getElementById(
-          "theme-toggle-dark-icon"
-        );
-        const themeToggleLightIcon = document.getElementById(
-          "theme-toggle-light-icon"
-        );
-        const themeToggleButton = document.getElementById("theme-toggle");
+    <!-- ========================================================= -->
+    <!-- MODALS & OVERLAYS                                         -->
+    <!-- ========================================================= -->
 
-        // console.log('Theme toggle button:', themeToggleButton); // Log: Button element
-        // console.log('Dark icon:', themeToggleDarkIcon); // Log: Dark icon element
-        // console.log('Light icon:', themeToggleLightIcon); // Log: Light icon element
+    <!-- 1. CHECKOUT / SUBSCRIBE / UNLOCK PPV MODAL -->
+    <div id="checkout-modal" class="hidden fixed inset-0 z-50 of-modal-backdrop flex items-center justify-center p-4" role="dialog" aria-modal="true">
+      <div class="of-modal-panel w-full max-w-[420px] rounded-2xl overflow-hidden">
+        <!-- Mini banner header -->
+        <div class="relative h-24 bg-slate-900">
+          <img src="assets/banner.jpeg" alt="" class="w-full h-full object-cover object-[50%_38%] opacity-85" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent"></div>
+          <button
+            type="button"
+            data-close-modal="checkout-modal"
+            class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/75 transition"
+            aria-label="Fermer"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="px-5 pb-5">
+          <div class="flex items-end gap-3 -mt-8 relative mb-3">
+            <img
+              src="assets/avatar.jpg"
+              alt="Chouette"
+              class="w-16 h-16 rounded-full object-cover border-[3px] border-[var(--card)]"
+            />
+            <div class="pb-1">
+              <div class="flex items-center gap-1 font-bold text-base">
+                <span>Chouette</span>
+                <svg class="w-4 h-4 text-[#00AFF0]" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.25 14.5-3.75-3.75 1.41-1.41 2.34 2.34 5.34-5.34 1.41 1.41-6.75 6.75z" />
+                </svg>
+              </div>
+              <p class="text-xs text-[var(--muted)]">@chouette.cc</p>
+            </div>
+          </div>
 
-        function setTheme(isDark) {
-          // console.log('setTheme called with isDark:', isDark); // Log: setTheme call
-          if (isDark) {
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-            // console.log('Applied dark theme. localStorage set to dark.'); // Log: Dark theme applied
-            if (themeToggleLightIcon)
-              themeToggleLightIcon.classList.remove("hidden");
-            if (themeToggleDarkIcon)
-              themeToggleDarkIcon.classList.add("hidden");
-          } else {
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-            // console.log('Applied light theme. localStorage set to light.'); // Log: Light theme applied
-            if (themeToggleDarkIcon)
-              themeToggleDarkIcon.classList.remove("hidden");
-            if (themeToggleLightIcon)
-              themeToggleLightIcon.classList.add("hidden");
-          }
-        }
+          <h3 id="checkout-title" class="text-base font-bold uppercase tracking-wide mb-1">S'abonner gratuitement</h3>
+          <p id="checkout-subtitle" class="text-sm text-[var(--text-secondary)] mb-4"></p>
 
-        const savedTheme = localStorage.getItem("theme");
-        // console.log('Saved theme from localStorage:', savedTheme); // Log: Saved theme
-        const prefersDarkScheme = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-        // console.log('Prefers dark color scheme (OS):', prefersDarkScheme); // Log: OS preference
+          <ul id="checkout-perks" class="space-y-2 text-sm text-[var(--text)] mb-4">
+            <li class="flex items-center gap-2">
+              <span class="text-[#00AFF0] font-bold">✓</span>
+              <span>Accès complet au contenu exclusif de Chouette</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#00AFF0] font-bold">✓</span>
+              <span>Messagerie directe avec réponses nocturnes</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#00AFF0] font-bold">✓</span>
+              <span>Annulez votre abonnement à tout moment (0,00 € réel)</span>
+            </li>
+          </ul>
 
-        if (savedTheme === "dark" || (!savedTheme && prefersDarkScheme)) {
-          // console.log('Initialising to DARK theme'); // Log: Initial theme decision
-          setTheme(true);
-        } else {
-          // console.log('Initialising to LIGHT theme'); // Log: Initial theme decision
-          setTheme(false);
-        }
+          <!-- Satirical Payment Method Box -->
+          <div class="rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-3 mb-4 flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <span class="text-xl">🦉</span>
+              <div>
+                <p class="text-xs font-semibold text-[var(--text)]">Carte Plumier Gold •••• 0270</p>
+                <p class="text-[11px] text-[var(--muted)]">Paiement parodique • 0,00 € débité</p>
+              </div>
+            </div>
+            <span id="checkout-price-pill" class="text-xs font-bold text-[#00AFF0] bg-[#00AFF0]/12 px-2.5 py-1 rounded-full">
+              GRATUIT
+            </span>
+          </div>
 
-        if (themeToggleButton) {
-          themeToggleButton.addEventListener("click", () => {
-            // console.log('Theme toggle button CLICKED'); // Log: Button click
-            const isDarkMode =
-              document.documentElement.classList.contains("dark");
-            // console.log('Current isDarkMode before toggle:', isDarkMode); // Log: State before toggle
-            setTheme(!isDarkMode);
-          });
-        } else {
-          // console.error('Theme toggle button (id="theme-toggle") not found after DOMContentLoaded.');
-        }
+          <div class="flex items-center justify-end gap-2">
+            <button type="button" data-close-modal="checkout-modal" class="of-btn-outline px-4 py-2 text-xs uppercase">
+              Annuler
+            </button>
+            <button type="button" id="checkout-confirm-btn" class="of-btn-primary px-5 py-2 text-xs uppercase">
+              Confirmer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        document
-          .querySelectorAll("button.disabled-button, a.disabled-button")
-          .forEach((button) => {
-            button.addEventListener("click", (event) => {
-              event.preventDefault();
-            });
-          });
+    <!-- 2. TIP ("POURBOIRE") MODAL -->
+    <div id="tip-modal" class="hidden fixed inset-0 z-50 of-modal-backdrop flex items-center justify-center p-4" role="dialog" aria-modal="true">
+      <div class="of-modal-panel w-full max-w-[420px] rounded-2xl p-5">
+        <div class="flex items-center justify-between pb-3 border-b border-[var(--border)]">
+          <h3 class="text-sm font-bold uppercase tracking-wider">Envoyer un pourboire</h3>
+          <button type="button" data-close-modal="tip-modal" class="text-[var(--muted)] hover:text-[var(--text)] p-1">✕</button>
+        </div>
 
-        const mainContentNav = document.querySelector(".main-content-area nav");
-        if (mainContentNav) {
-          const tabsInNav = mainContentNav.querySelectorAll(
-            "button.disabled-button"
-          );
-          tabsInNav.forEach((clickedTab) => {
-            clickedTab.addEventListener("click", (event) => {
-              event.preventDefault();
-              tabsInNav.forEach((t) => {
-                t.classList.remove(
-                  "tab-active",
-                  "text-blue-600",
-                  "border-blue-600",
-                  "dark:text-blue-400",
-                  "dark:border-blue-400"
-                );
-                t.classList.add(
-                  "tab-inactive",
-                  "text-gray-500",
-                  "dark:text-gray-400",
-                  "border-transparent"
-                );
-              });
-              clickedTab.classList.remove(
-                "tab-inactive",
-                "text-gray-500",
-                "dark:text-gray-400",
-                "border-transparent"
-              );
-              clickedTab.classList.add(
-                "tab-active",
-                "text-blue-600",
-                "border-blue-600",
-                "dark:text-blue-400",
-                "dark:border-blue-400"
-              );
-            });
-          });
-        }
-      });
-    </script>
+        <div class="flex items-center gap-3 my-4">
+          <img src="assets/avatar.jpg" alt="Chouette" class="w-11 h-11 rounded-full object-cover" />
+          <div>
+            <p class="font-bold text-sm">Chouette <span class="text-[#00AFF0]">✓</span></p>
+            <p id="tip-context-label" class="text-xs text-[var(--muted)]">@chouette.cc • Soutien au nichoir</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-2 mb-3" id="tip-presets">
+          <button type="button" class="tip-preset-btn of-chip text-center py-2 is-active" data-tip-amount="5">
+            5 €<span class="block text-[10px] opacity-75">1 Mulot</span>
+          </button>
+          <button type="button" class="tip-preset-btn of-chip text-center py-2" data-tip-amount="10">
+            10 €<span class="block text-[10px] opacity-75">2 Mulots</span>
+          </button>
+          <button type="button" class="tip-preset-btn of-chip text-center py-2" data-tip-amount="25">
+            25 €<span class="block text-[10px] opacity-75">Nichoir</span>
+          </button>
+          <button type="button" class="tip-preset-btn of-chip text-center py-2" data-tip-amount="50">
+            50 €<span class="block text-[10px] opacity-75">Forêt VIP</span>
+          </button>
+        </div>
+
+        <label class="block text-xs font-medium text-[var(--muted)] mb-1" for="tip-custom-input">Montant factice (€)</label>
+        <input
+          type="number"
+          id="tip-custom-input"
+          min="1"
+          max="999"
+          value="5"
+          class="w-full rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] px-3.5 py-2.5 text-sm font-semibold text-[var(--text)] mb-3 focus:outline-none focus:border-[#00AFF0]"
+        />
+
+        <label class="block text-xs font-medium text-[var(--muted)] mb-1" for="tip-message-input">Petit mot pour Chouette (optionnel)</label>
+        <input
+          type="text"
+          id="tip-message-input"
+          placeholder="Ex: Pour acheter des graines de tournesol bio ! 🦉"
+          maxlength="140"
+          class="w-full rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] px-3.5 py-2.5 text-sm text-[var(--text)] placeholder:text-[var(--muted)] mb-4 focus:outline-none focus:border-[#00AFF0]"
+        />
+
+        <p class="text-[11px] text-[var(--muted)] mb-4">
+          💡 Pourboire 100% fictif pour la blague — aucune transaction bancaire n'a lieu.
+        </p>
+
+        <div class="flex items-center justify-end gap-2">
+          <button type="button" data-close-modal="tip-modal" class="of-btn-outline px-4 py-2 text-xs uppercase">Annuler</button>
+          <button type="button" id="tip-confirm-btn" class="of-btn-primary px-5 py-2 text-xs uppercase">Envoyer 5 €</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. DIRECT MESSAGES (DM) MODAL -->
+    <div id="dm-modal" class="hidden fixed inset-0 z-50 of-modal-backdrop flex items-center justify-center p-0 sm:p-4" role="dialog" aria-modal="true">
+      <div class="of-modal-panel w-full h-full sm:h-[620px] sm:max-w-[460px] sm:rounded-2xl flex flex-col overflow-hidden">
+        <!-- DM Header -->
+        <div class="px-4 py-3 border-b border-[var(--border)] flex items-center justify-between shrink-0">
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <img src="assets/avatar.jpg" alt="Chouette" class="w-10 h-10 rounded-full object-cover" />
+              <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-[#35C759] border-2 border-[var(--card)]"></span>
+            </div>
+            <div>
+              <div class="flex items-center gap-1 font-bold text-sm">
+                <span>Chouette</span>
+                <svg class="w-4 h-4 text-[#00AFF0]" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.25 14.5-3.75-3.75 1.41-1.41 2.34 2.34 5.34-5.34 1.41 1.41-6.75 6.75z" />
+                </svg>
+              </div>
+              <p class="text-[11px] text-[#35C759] font-medium">Disponible maintenant</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-1">
+            <button
+              type="button"
+              data-action="open-tip-from-dm"
+              class="p-2 rounded-full text-[#00AFF0] hover:bg-[var(--of-blue-soft)]"
+              title="Envoyer un pourboire"
+            >
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 11.219 12.768 11 12 11c-.768 0-1.536.219-2.121.659-.922.689-.428 2.013.182 2.598Z" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              data-close-modal="dm-modal"
+              class="p-2 rounded-full text-[var(--muted)] hover:text-[var(--text)]"
+              aria-label="Fermer"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+
+        <!-- DM Messages Thread -->
+        <div id="dm-messages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-[var(--bg-subtle)]"></div>
+
+        <!-- Quick Replies + Input -->
+        <div class="p-3 border-t border-[var(--border)] bg-[var(--card)] shrink-0 space-y-2">
+          <div class="flex gap-1.5 overflow-x-auto no-scrollbar">
+            <button type="button" class="of-chip text-xs" data-dm-quick="Hooo-hooo ! Tes plumes sont incroyables 🦉">Hooo-hooo ! 🦉</button>
+            <button type="button" class="of-chip text-xs" data-dm-quick="Tu fais quoi ce soir dans la forêt ? 🌙">Ce soir ? 🌙</button>
+            <button type="button" class="of-chip text-xs" data-dm-quick="Tu acceptes les mulots bio ? 🐭">Mulots bio ? 🐭</button>
+          </div>
+          <form id="dm-form" class="flex items-center gap-2">
+            <input
+              type="text"
+              id="dm-input"
+              placeholder="Écrire un message à Chouette..."
+              autocomplete="off"
+              class="flex-1 rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] px-4 py-2 text-sm text-[var(--text)] placeholder:text-[var(--muted)] focus:outline-none focus:border-[#00AFF0]"
+            />
+            <button type="submit" class="of-btn-primary px-4 py-2 text-xs uppercase shrink-0">Envoyer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. NOTIFICATIONS MODAL -->
+    <div id="notifications-modal" class="hidden fixed inset-0 z-50 of-modal-backdrop flex items-center justify-center p-4" role="dialog" aria-modal="true">
+      <div class="of-modal-panel w-full max-w-[440px] max-h-[82vh] rounded-2xl flex flex-col overflow-hidden">
+        <div class="px-5 py-3.5 border-b border-[var(--border)] flex items-center justify-between">
+          <h3 class="text-sm font-bold uppercase tracking-wider">Notifications</h3>
+          <button type="button" data-close-modal="notifications-modal" class="text-[var(--muted)] hover:text-[var(--text)] p-1">✕</button>
+        </div>
+        <div id="notifications-list" class="flex-1 overflow-y-auto divide-y divide-[var(--border)]"></div>
+      </div>
+    </div>
+
+    <!-- 5. MULTI-PURPOSE DRAWER MODAL (Collections, Subscriptions, Profile Settings, OwlCard, About) -->
+    <div id="info-modal" class="hidden fixed inset-0 z-50 of-modal-backdrop flex items-center justify-center p-4" role="dialog" aria-modal="true">
+      <div class="of-modal-panel w-full max-w-[460px] max-h-[85vh] rounded-2xl flex flex-col overflow-hidden">
+        <div class="px-5 py-3.5 border-b border-[var(--border)] flex items-center justify-between shrink-0">
+          <h3 id="info-modal-title" class="text-sm font-bold uppercase tracking-wider">Info</h3>
+          <button type="button" data-close-modal="info-modal" class="text-[var(--muted)] hover:text-[var(--text)] p-1">✕</button>
+        </div>
+        <div id="info-modal-body" class="flex-1 overflow-y-auto p-5"></div>
+      </div>
+    </div>
+
+    <!-- 6. FULL-SCREEN LIGHTBOX MODAL -->
+    <div id="lightbox-modal" class="hidden fixed inset-0 z-[70] bg-black/95 flex flex-col items-center justify-center p-4" role="dialog" aria-modal="true">
+      <div class="absolute top-4 inset-x-4 flex items-center justify-between text-white z-10">
+        <span id="lightbox-counter" class="text-xs font-medium text-white/75"></span>
+        <button
+          type="button"
+          data-close-modal="lightbox-modal"
+          class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-lg transition"
+          aria-label="Fermer la galerie"
+        >
+          ✕
+        </button>
+      </div>
+
+      <button
+        type="button"
+        id="lightbox-prev"
+        class="hidden absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition z-10"
+        aria-label="Image précédente"
+      >
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+        </svg>
+      </button>
+
+      <div class="relative max-w-[92vw] max-h-[78vh] flex items-center justify-center">
+        <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[78vh] object-contain rounded-lg select-none" />
+        <span class="of-watermark">onlyowl.com/chouette.cc</span>
+      </div>
+
+      <button
+        type="button"
+        id="lightbox-next"
+        class="hidden absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition z-10"
+        aria-label="Image suivante"
+      >
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>
+      </button>
+
+      <p id="lightbox-caption" class="mt-4 text-center text-sm text-white/85 max-w-xl"></p>
+    </div>
+
+    <!-- TOAST NOTIFICATIONS -->
+    <div id="toast-container" aria-live="polite"></div>
+
+    <script src="app.js" defer></script>
   </body>
 </html>
